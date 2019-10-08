@@ -281,11 +281,11 @@ class Convex : public ShapeBase
 {
 public:
   /// @brief Constructing a convex, providing normal and offset of each polytype surface, and the points and shape topology information 
-  /// \param points_ list of 3D points
-  /// \param num_points_ number of 3D points
-  /// \param polygons_ \copydoc Convex::polygons
-  /// \param num_polygons_ the number of polygons.
-  /// \note num_polygons_ is not the allocated size of polygons_.
+  /// @param points_ list of 3D points
+  /// @param num_points_ number of 3D points
+  /// @param polygons_ @copydoc Convex::polygons
+  /// @param num_polygons_ the number of polygons.
+  /// @note num_polygons_ is not the allocated size of polygons_.
   Convex(Vec3f* points_,
          int num_points_,
          int* polygons_,

@@ -1209,7 +1209,7 @@ EPA::SimplexF* EPA::newFace(SimplexV* a, SimplexV* b, SimplexV* c, bool forced)
   return NULL;
 }
 
-/** \brief Find the best polytope face to split */
+/** @brief Find the best polytope face to split */
 EPA::SimplexF* EPA::findBest()
 {
   SimplexF* minf = hull.root;
@@ -1341,7 +1341,7 @@ EPA::Status EPA::evaluate(GJK& gjk, const Vec3f& guess)
 }
 
 
-/** \brief the goal is to add a face connecting vertex w and face edge f[e] */
+/** @brief the goal is to add a face connecting vertex w and face edge f[e] */
 bool EPA::expand(size_t pass, SimplexV* w, SimplexF* f, size_t e, SimplexHorizon& horizon)
 {
   static const size_t nexti[] = {1, 2, 0};

@@ -53,6 +53,7 @@ namespace fcl
 
 
 /// @brief Traversal node for collision between two shapes
+/// @internal ShapeCollisionTraversalNode, private class.
 template<typename S1, typename S2>
 class ShapeCollisionTraversalNode : public CollisionTraversalNodeBase
 {
@@ -115,6 +116,7 @@ public:
 };
 
 /// @brief Traversal node for distance between two shapes
+/// @internal ShapeDistanceTraversalNode, private class.
 template<typename S1, typename S2>
 class ShapeDistanceTraversalNode : public DistanceTraversalNodeBase
 {
