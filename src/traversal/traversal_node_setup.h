@@ -56,6 +56,7 @@ namespace fcl
 
 #ifdef HPP_FCL_HAVE_OCTOMAP
 /// @brief Initialize traversal node for collision between two octrees, given current object transform
+/// @internal initialize(OcTreeCollisionTraversalNode), private function.
 bool initialize(OcTreeCollisionTraversalNode& node,
                 const OcTree& model1, const Transform3f& tf1,
                 const OcTree& model2, const Transform3f& tf2,
@@ -76,6 +77,7 @@ bool initialize(OcTreeCollisionTraversalNode& node,
 }
 
 /// @brief Initialize traversal node for distance between two octrees, given current object transform
+/// @internal initialize(OcTreeDistanceTraversalNode), private function.
 bool initialize(OcTreeDistanceTraversalNode& node,
                 const OcTree& model1, const Transform3f& tf1,
                 const OcTree& model2, const Transform3f& tf2,
@@ -98,6 +100,7 @@ bool initialize(OcTreeDistanceTraversalNode& node,
 }
 
 /// @brief Initialize traversal node for collision between one shape and one octree, given current object transform
+/// @internal initialize(ShapeOcTreeCollisionTraversalNode), private function.
 template<typename S>
 bool initialize(ShapeOcTreeCollisionTraversalNode<S>& node,
                 const S& model1, const Transform3f& tf1,
@@ -119,6 +122,7 @@ bool initialize(ShapeOcTreeCollisionTraversalNode<S>& node,
 }
 
 /// @brief Initialize traversal node for collision between one octree and one shape, given current object transform
+/// @internal initialize(OcTreeShapeCollisionTraversalNode), private function.
 template<typename S>
 bool initialize(OcTreeShapeCollisionTraversalNode<S>& node,
                 const OcTree& model1, const Transform3f& tf1,
@@ -140,6 +144,7 @@ bool initialize(OcTreeShapeCollisionTraversalNode<S>& node,
 }
 
 /// @brief Initialize traversal node for distance between one shape and one octree, given current object transform
+/// @internal initialize(ShapeOcTreeDistanceTraversalNode), private function.
 template<typename S>
 bool initialize(ShapeOcTreeDistanceTraversalNode<S>& node,
                 const S& model1, const Transform3f& tf1,
@@ -163,6 +168,7 @@ bool initialize(ShapeOcTreeDistanceTraversalNode<S>& node,
 }
 
 /// @brief Initialize traversal node for distance between one octree and one shape, given current object transform
+/// @internal initialize(OcTreeShapeDistanceTraversalNode), private function.
 template<typename S>
 bool initialize(OcTreeShapeDistanceTraversalNode<S>& node,
                 const OcTree& model1, const Transform3f& tf1,
@@ -186,6 +192,7 @@ bool initialize(OcTreeShapeDistanceTraversalNode<S>& node,
 }
 
 /// @brief Initialize traversal node for collision between one mesh and one octree, given current object transform
+/// @internal initialize(MeshOcTreeCollisionTraversalNode), private function.
 template<typename BV>
 bool initialize(MeshOcTreeCollisionTraversalNode<BV>& node,
                 const BVHModel<BV>& model1, const Transform3f& tf1,
@@ -207,6 +214,7 @@ bool initialize(MeshOcTreeCollisionTraversalNode<BV>& node,
 }
 
 /// @brief Initialize traversal node for collision between one octree and one mesh, given current object transform
+/// @internal initialize(OcTreeMeshCollisionTraversalNode), private function.
 template<typename BV>
 bool initialize(OcTreeMeshCollisionTraversalNode<BV>& node,
                 const OcTree& model1, const Transform3f& tf1,
@@ -228,6 +236,7 @@ bool initialize(OcTreeMeshCollisionTraversalNode<BV>& node,
 }
 
 /// @brief Initialize traversal node for distance between one mesh and one octree, given current object transform
+/// @internal initialize(MeshOcTreeDistanceTraversalNode), private function.
 template<typename BV>
 bool initialize(MeshOcTreeDistanceTraversalNode<BV>& node,
                 const BVHModel<BV>& model1, const Transform3f& tf1,
@@ -251,6 +260,7 @@ bool initialize(MeshOcTreeDistanceTraversalNode<BV>& node,
 }
 
 /// @brief Initialize traversal node for collision between one octree and one mesh, given current object transform
+/// @internal initialize(OcTreeMeshDistanceTraversalNode), private function.
 template<typename BV>
 bool initialize(OcTreeMeshDistanceTraversalNode<BV>& node,
                 const OcTree& model1, const Transform3f& tf1,
@@ -277,6 +287,7 @@ bool initialize(OcTreeMeshDistanceTraversalNode<BV>& node,
 
 
 /// @brief Initialize traversal node for collision between two geometric shapes, given current object transform
+/// @internal initialize(ShapeCollisionTraversalNode), private function.
 template<typename S1, typename S2>
 bool initialize(ShapeCollisionTraversalNode<S1, S2>& node,
                 const S1& shape1, const Transform3f& tf1,
@@ -296,6 +307,7 @@ bool initialize(ShapeCollisionTraversalNode<S1, S2>& node,
 }
 
 /// @brief Initialize traversal node for collision between one mesh and one shape, given current object transform
+/// @internal initialize(MeshShapeCollisionTraversalNode), private function.
 template<typename BV, typename S>
 bool initialize(MeshShapeCollisionTraversalNode<BV, S>& node,
                 BVHModel<BV>& model1, Transform3f& tf1,
@@ -376,6 +388,7 @@ static inline bool setupMeshShapeCollisionOrientedNode(OrientedNode<S>& node,
 
 
 /// @brief Initialize the traversal node for collision between one mesh and one shape, specialized for OBB type
+/// @internal initialize(MeshShapeCollisionTraversalNodeOBB), private function.
 template<typename S>
 bool initialize(MeshShapeCollisionTraversalNodeOBB<S>& node,
                 const BVHModel<OBB>& model1, const Transform3f& tf1,
@@ -387,6 +400,7 @@ bool initialize(MeshShapeCollisionTraversalNodeOBB<S>& node,
 }
 
 /// @brief Initialize the traversal node for collision between one mesh and one shape, specialized for RSS type
+/// @internal initialize(MeshShapeCollisionTraversalNodeRSS), private function.
 template<typename S>
 bool initialize(MeshShapeCollisionTraversalNodeRSS<S>& node,
                 const BVHModel<RSS>& model1, const Transform3f& tf1,
@@ -398,6 +412,7 @@ bool initialize(MeshShapeCollisionTraversalNodeRSS<S>& node,
 }
 
 /// @brief Initialize the traversal node for collision between one mesh and one shape, specialized for kIOS type
+/// @internal initialize(MeshShapeCollisionTraversalNodekIOS), private function.
 template<typename S>
 bool initialize(MeshShapeCollisionTraversalNodekIOS<S>& node,
                 const BVHModel<kIOS>& model1, const Transform3f& tf1,
@@ -409,6 +424,7 @@ bool initialize(MeshShapeCollisionTraversalNodekIOS<S>& node,
 }
 
 /// @brief Initialize the traversal node for collision between one mesh and one shape, specialized for OBBRSS type
+/// @internal initialize(MeshShapeCollisionTraversalNodeOBBRSS), private function.
 template<typename S>
 bool initialize(MeshShapeCollisionTraversalNodeOBBRSS<S>& node,
                 const BVHModel<OBBRSS>& model1, const Transform3f& tf1,
@@ -453,6 +469,7 @@ static inline bool setupShapeMeshCollisionOrientedNode(OrientedNode<S>& node,
 
 
 /// @brief Initialize traversal node for collision between two meshes, given the current transforms
+/// @internal initialize(MeshCollisionTraversalNode), private function.
 template<typename BV>
 bool initialize(MeshCollisionTraversalNode<BV, RelativeTransformationIsIdentity>& node,
                 BVHModel<BV>& model1, Transform3f& tf1,
@@ -542,6 +559,7 @@ bool initialize(MeshCollisionTraversalNode<BV, 0>& node,
 }
 
 /// @brief Initialize traversal node for distance between two geometric shapes
+/// @internal initialize(ShapeDistanceTraversalNode), private function.
 template<typename S1, typename S2>
 bool initialize(ShapeDistanceTraversalNode<S1, S2>& node,
                 const S1& shape1, const Transform3f& tf1,
@@ -563,6 +581,7 @@ bool initialize(ShapeDistanceTraversalNode<S1, S2>& node,
 }
 
 /// @brief Initialize traversal node for distance computation between two meshes, given the current transforms
+/// @internal initialize(MeshDistanceTraversalNode), private function.
 template<typename BV>
 bool initialize(MeshDistanceTraversalNode<BV>& node,
                 BVHModel<BV>& model1, Transform3f& tf1,
@@ -627,6 +646,7 @@ bool initialize(MeshDistanceTraversalNode<BV>& node,
 
 
 /// @brief Initialize traversal node for distance computation between two meshes, specialized for RSS type
+/// @internal initialize(MeshDistanceTraversalNodeRSS), private function.
 bool initialize(MeshDistanceTraversalNodeRSS& node,
                 const BVHModel<RSS>& model1, const Transform3f& tf1,
                 const BVHModel<RSS>& model2, const Transform3f& tf2,
@@ -634,6 +654,7 @@ bool initialize(MeshDistanceTraversalNodeRSS& node,
                 DistanceResult& result);
 
 /// @brief Initialize traversal node for distance computation between two meshes, specialized for kIOS type
+/// @internal initialize(MeshDistanceTraversalNodekIOS), private function.
 bool initialize(MeshDistanceTraversalNodekIOS& node,
                 const BVHModel<kIOS>& model1, const Transform3f& tf1,
                 const BVHModel<kIOS>& model2, const Transform3f& tf2,
@@ -641,6 +662,7 @@ bool initialize(MeshDistanceTraversalNodekIOS& node,
                 DistanceResult& result);
 
 /// @brief Initialize traversal node for distance computation between two meshes, specialized for OBBRSS type
+/// @internal initialize(MeshDistanceTraversalNodeOBBRSS), private function.
 bool initialize(MeshDistanceTraversalNodeOBBRSS& node,
                 const BVHModel<OBBRSS>& model1, const Transform3f& tf1,
                 const BVHModel<OBBRSS>& model2, const Transform3f& tf2,
@@ -648,6 +670,7 @@ bool initialize(MeshDistanceTraversalNodeOBBRSS& node,
                 DistanceResult& result);
 
 /// @brief Initialize traversal node for distance computation between one mesh and one shape, given the current transforms
+/// @internal initialize(MeshShapeDistanceTraversalNode), private function.
 template<typename BV, typename S>
 bool initialize(MeshShapeDistanceTraversalNode<BV, S>& node,
                 BVHModel<BV>& model1, Transform3f& tf1,
@@ -695,6 +718,7 @@ bool initialize(MeshShapeDistanceTraversalNode<BV, S>& node,
 }
 
 /// @brief Initialize traversal node for distance computation between one shape and one mesh, given the current transforms
+/// @internal initialize(ShapeMeshDistanceTraversalNode), private function.
 template<typename S, typename BV>
 bool initialize(ShapeMeshDistanceTraversalNode<S, BV>& node,
                 const S& model1, const Transform3f& tf1,
@@ -776,6 +800,7 @@ static inline bool setupMeshShapeDistanceOrientedNode(OrientedNode<S>& node,
 /// @endcond
 
 /// @brief Initialize traversal node for distance computation between one mesh and one shape, specialized for RSS type
+/// @internal initialize(MeshShapeDistanceTraversalNodeRSS), private function.
 template<typename S>
 bool initialize(MeshShapeDistanceTraversalNodeRSS<S>& node,
                 const BVHModel<RSS>& model1, const Transform3f& tf1,
@@ -788,6 +813,7 @@ bool initialize(MeshShapeDistanceTraversalNodeRSS<S>& node,
 }
 
 /// @brief Initialize traversal node for distance computation between one mesh and one shape, specialized for kIOS type
+/// @internal initialize(MeshShapeDistanceTraversalNodekIOS), private function.
 template<typename S>
 bool initialize(MeshShapeDistanceTraversalNodekIOS<S>& node,
                 const BVHModel<kIOS>& model1, const Transform3f& tf1,
@@ -800,6 +826,7 @@ bool initialize(MeshShapeDistanceTraversalNodekIOS<S>& node,
 }
 
 /// @brief Initialize traversal node for distance computation between one mesh and one shape, specialized for OBBRSS type
+/// @internal initialize(MeshShapeDistanceTraversalNodeOBBRSS), private function.
 template<typename S>
 bool initialize(MeshShapeDistanceTraversalNodeOBBRSS<S>& node,
                 const BVHModel<OBBRSS>& model1, const Transform3f& tf1,
@@ -847,6 +874,7 @@ static inline bool setupShapeMeshDistanceOrientedNode(OrientedNode<S>& node,
 
 
 /// @brief Initialize traversal node for distance computation between one shape and one mesh, specialized for RSS type
+/// @internal initialize, private function.
 template<typename S>
 bool initialize(ShapeMeshDistanceTraversalNodeRSS<S>& node,
                 const S& model1, const Transform3f& tf1,
@@ -859,6 +887,7 @@ bool initialize(ShapeMeshDistanceTraversalNodeRSS<S>& node,
 }
 
 /// @brief Initialize traversal node for distance computation between one shape and one mesh, specialized for kIOS type
+/// @internal initialize(ShapeMeshDistanceTraversalNodekIOS), private function.
 template<typename S>
 bool initialize(ShapeMeshDistanceTraversalNodekIOS<S>& node,
                 const S& model1, const Transform3f& tf1,
@@ -871,6 +900,7 @@ bool initialize(ShapeMeshDistanceTraversalNodekIOS<S>& node,
 }
 
 /// @brief Initialize traversal node for distance computation between one shape and one mesh, specialized for OBBRSS type
+/// @internal initialize(ShapeMeshDistanceTraversalNodeOBBRSS), private function.
 template<typename S>
 bool initialize(ShapeMeshDistanceTraversalNodeOBBRSS<S>& node,
                 const S& model1, const Transform3f& tf1,
