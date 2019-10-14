@@ -53,8 +53,8 @@ namespace fcl {
     public:
       virtual ~MeshLoader() {}
 
-       /// \param bvType ignored
-      /// \deprecated Use MeshLoader::load(const std::string&, const Vec3f&)
+      /// @param bvType ignored
+      /// @deprecated Use MeshLoader::load(const std::string&, const Vec3f&)
       CollisionGeometryPtr_t load (const std::string& filename,
           const Vec3f& scale,
           const NODE_TYPE& bvType) HPP_FCL_DEPRECATED

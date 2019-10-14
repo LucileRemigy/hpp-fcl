@@ -35,9 +35,10 @@
 
 /** \author Jia Pan */
 
-
 #ifndef HPP_FCL_TRAVERSAL_NODE_SETUP_H
 #define HPP_FCL_TRAVERSAL_NODE_SETUP_H
+
+/// @cond INTERNAL
 
 #include "traversal_node_bvhs.h"
 #include "traversal_node_shapes.h"
@@ -885,5 +886,7 @@ bool initialize(ShapeMeshDistanceTraversalNodeOBBRSS<S>& node,
 }
 
 } // namespace hpp
+
+/// @endcond
 
 #endif

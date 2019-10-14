@@ -52,6 +52,9 @@ namespace hpp
 namespace fcl
 {
 
+/// @addtogroup Construction_Of_BVH
+/// @{
+
 /// @brief A class describing the bounding hierarchy of a mesh model or a point cloud model (which is viewed as a degraded version of mesh)
 template<typename BV>
 class BVHModel : public CollisionGeometry
@@ -300,7 +303,7 @@ private:
   /// @brief Recursive kernel for bottomup refitting 
   int recursiveRefitTree_bottomup(int bv_id);
 
-  /// @recursively compute each bv's transform related to its parent. For default BV, only the translation works. 
+  /// @ recursively compute each bv's transform related to its parent. For default BV, only the translation works. 
   /// For oriented BV (OBB, RSS, OBBRSS), special implementation is provided.
   void makeParentRelativeRecurse(int bv_id, Matrix3f& parent_axes, const Vec3f& parent_c)
   {
@@ -315,6 +318,7 @@ private:
   }
 };
 
+/// @}
 
 template<>
 void BVHModel<OBB>::makeParentRelativeRecurse(int bv_id, Matrix3f& parent_axes, const Vec3f& parent_c);

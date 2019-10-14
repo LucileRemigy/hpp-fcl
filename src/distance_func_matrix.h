@@ -34,12 +34,18 @@
 
 /** \author Florent Lamiraux */
 
+#ifndef HPP_FCL_DISTANCE_FUNC_MATRIX_H
+#define HPP_FCL_DISTANCE_FUNC_MATRIX_H
+
+/// @cond INTERNAL
+
 #include <hpp/fcl/collision_data.h>
 #include <hpp/fcl/narrowphase/narrowphase.h>
 
 namespace hpp
 {
-namespace fcl {
+namespace fcl
+{
   template<typename T_SH1, typename T_SH2>
     FCL_REAL ShapeShapeDistance
     (const CollisionGeometry* o1, const Transform3f& tf1,
@@ -56,3 +62,7 @@ namespace fcl {
 }
 
 } // namespace hpp
+
+/// @endcond
+
+#endif
