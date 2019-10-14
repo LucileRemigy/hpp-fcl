@@ -75,7 +75,7 @@ endif ()
 search_for_boost()
 # Optional dependencies
 add_optional_dependency("octomap >= 1.6")
-if (OCTOMAP_FOUND)
+if (OCTOMAP_INCLUDE_DIRS AND OCTOMAP_LIBRARY_DIRS)
   include_directories(SYSTEM ${OCTOMAP_INCLUDE_DIRS})
   link_directories(${OCTOMAP_LIBRARY_DIRS})
   SET(HPP_FCL_HAVE_OCTOMAP TRUE)
