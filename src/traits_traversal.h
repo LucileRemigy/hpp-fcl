@@ -1,8 +1,7 @@
 /*
  * Software License Agreement (BSD License)
  *
- *  Copyright (c) 2011-2014, Willow Garage, Inc.
- *  Copyright (c) 2014-2015, Open Source Robotics Foundation
+ *  Copyright (c) 2014, CNRS-LAAS
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -15,7 +14,7 @@
  *     copyright notice, this list of conditions and the following
  *     disclaimer in the documentation and/or other materials provided
  *     with the distribution.
- *   * Neither the name of Open Source Robotics Foundation nor the names of its
+ *   * Neither the name of Willow Garage, Inc. nor the names of its
  *     contributors may be used to endorse or promote products derived
  *     from this software without specific prior written permission.
  *
@@ -33,32 +32,66 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  */
 
-/** \author Jia Pan */
+/** \author Florent Lamiraux */
 
 
-#include <hpp/fcl/math/transform.h>
-#include <boost/math/constants/constants.hpp>
+#include <hpp/fcl/collision_func_matrix.h>
+
+#include "traversal/traversal_node_setup.h"
+#include <../src/collision_node.h>
+#include <hpp/fcl/narrowphase/narrowphase.h>
+#include "distance_func_matrix.h"
 
 namespace hpp
 {
 namespace fcl
 {
-
-void relativeTransform(const Transform3f& tf1, const Transform3f& tf2,
-                       Transform3f& tf)
+template <typename TypeA, typename TypeB>
+struct TraversalTraits
 {
-  tf = tf1.inverseTimes (tf2);
-}
+};
 
-void relativeTransform2(const Transform3f& tf1, const Transform3f& tf2,
-                       Transform3f& tf)
+template <typename T_SH>
+struct TraversalTraits <T_SH, OcTree>
 {
-  Matrix3f R (tf2.getRotation() * tf1.getRotation().transpose());
-  tf = Transform3f(R, tf2.getTranslation() - R * tf1.getTranslation());
-}
+  typedef ShapeOcTreeCollisionTraversalNode<T_SH, GJKSolver> CollisionTraversal_t;
+};
+
+template <typename T_SH>
+struct TraversalTraits <OcTree, T_SH>
+{
+  typedef OcTreeShapeCollisionTraversalNode<T_SH, GJKSolver> CollisionTraversal_t;
+};
+
+template <>
+struct TraversalTraits <OcTree, OcTree>
+{
+  typedef OcTreeCollisionTraversalNode<GJKSolver> CollisionTraversal_t;
+};
+
+template <typename T_BVH>
+struct TraversalTraits <OcTree, BVHModel<T_BVH>>
+{
+  typedef OcTreeMeshCollisionTraversalNode<T_BVH, GJKSolver> CollisionTraversal_t;
+};
+
+template <typename T_BVH>
+struct TraversalTraits <BVHModel<T_BVH>, OcTree>
+{
+  typedef MeshOcTreeCollisionTraversalNode<T_BVH, GJKSolver> CollisionTraversal_t;
+};
+
+
+
+
+
+
+
+
+
 
 
 
 }
 
-} // namespace hpp
+} //hpp

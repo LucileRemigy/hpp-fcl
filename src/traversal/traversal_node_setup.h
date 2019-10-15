@@ -57,12 +57,12 @@ namespace fcl
 
 #ifdef HPP_FCL_HAVE_OCTOMAP
 /// @brief Initialize traversal node for collision between two octrees, given current object transform
-bool initialize(OcTreeCollisionTraversalNode& node,
-                const OcTree& model1, const Transform3f& tf1,
-                const OcTree& model2, const Transform3f& tf2,
-                const OcTreeSolver* otsolver,
-                CollisionResult& result)
-{
+inline bool initialize(OcTreeCollisionTraversalNode& node,
+                       const OcTree& model1, const Transform3f& tf1,
+                       const OcTree& model2, const Transform3f& tf2,
+                       const OcTreeSolver* otsolver,
+                       CollisionResult& result)
+
   node.result = &result;
 
   node.model1 = &model1;
@@ -77,12 +77,13 @@ bool initialize(OcTreeCollisionTraversalNode& node,
 }
 
 /// @brief Initialize traversal node for distance between two octrees, given current object transform
-bool initialize(OcTreeDistanceTraversalNode& node,
-                const OcTree& model1, const Transform3f& tf1,
-                const OcTree& model2, const Transform3f& tf2,
-                const OcTreeSolver* otsolver,
-                const DistanceRequest& request,
-                DistanceResult& result)
+inline bool initialize(OcTreeDistanceTraversalNode& node,
+                       const OcTree& model1, const Transform3f& tf1,
+                       const OcTree& model2, const Transform3f& tf2,
+                       const OcTreeSolver* otsolver,
+                       const DistanceRequest& request,
+                       DistanceResult& result)
+
 {
   node.request = request;
   node.result = &result;

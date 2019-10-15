@@ -43,6 +43,8 @@
 #include <hpp/fcl/shape/geometric_shapes.h>
 #include <hpp/fcl/BV/BV.h>
 
+#include "../src/BVH/BV_fitter.h"
+
 namespace hpp
 {
 namespace fcl
@@ -57,7 +59,7 @@ std::vector<Vec3f> getBoundVertices(const Sphere& sphere, const Transform3f& tf)
 std::vector<Vec3f> getBoundVertices(const Capsule& capsule, const Transform3f& tf);
 std::vector<Vec3f> getBoundVertices(const Cone& cone, const Transform3f& tf);
 std::vector<Vec3f> getBoundVertices(const Cylinder& cylinder, const Transform3f& tf);
-std::vector<Vec3f> getBoundVertices(const Convex& convex, const Transform3f& tf);
+std::vector<Vec3f> getBoundVertices(const ConvexBase& convex, const Transform3f& tf);
 std::vector<Vec3f> getBoundVertices(const TriangleP& triangle, const Transform3f& tf);
 } 
 /// @endcond
@@ -87,7 +89,7 @@ template<>
 void computeBV<AABB, Cylinder>(const Cylinder& s, const Transform3f& tf, AABB& bv);
 
 template<>
-void computeBV<AABB, Convex>(const Convex& s, const Transform3f& tf, AABB& bv);
+void computeBV<AABB, ConvexBase>(const ConvexBase& s, const Transform3f& tf, AABB& bv);
 
 template<>
 void computeBV<AABB, TriangleP>(const TriangleP& s, const Transform3f& tf, AABB& bv);
@@ -116,7 +118,7 @@ template<>
 void computeBV<OBB, Cylinder>(const Cylinder& s, const Transform3f& tf, OBB& bv);
 
 template<>
-void computeBV<OBB, Convex>(const Convex& s, const Transform3f& tf, OBB& bv);
+void computeBV<OBB, ConvexBase>(const ConvexBase& s, const Transform3f& tf, OBB& bv);
 
 template<>
 void computeBV<OBB, Halfspace>(const Halfspace& s, const Transform3f& tf, OBB& bv);

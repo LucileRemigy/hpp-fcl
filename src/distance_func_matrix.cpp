@@ -299,7 +299,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_BOX][GEOM_CAPSULE] = &ShapeShapeDistance<Box, Capsule>;
   distance_matrix[GEOM_BOX][GEOM_CONE] = &ShapeShapeDistance<Box, Cone>;
   distance_matrix[GEOM_BOX][GEOM_CYLINDER] = &ShapeShapeDistance<Box, Cylinder>;
-  distance_matrix[GEOM_BOX][GEOM_CONVEX] = &ShapeShapeDistance<Box, Convex>;
+  distance_matrix[GEOM_BOX][GEOM_CONVEX] = &ShapeShapeDistance<Box, ConvexBase>;
   distance_matrix[GEOM_BOX][GEOM_PLANE] = &ShapeShapeDistance<Box, Plane>;
   distance_matrix[GEOM_BOX][GEOM_HALFSPACE] = &ShapeShapeDistance<Box, Halfspace>;
 
@@ -308,7 +308,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_SPHERE][GEOM_CAPSULE] = &ShapeShapeDistance<Sphere, Capsule>;
   distance_matrix[GEOM_SPHERE][GEOM_CONE] = &ShapeShapeDistance<Sphere, Cone>;
   distance_matrix[GEOM_SPHERE][GEOM_CYLINDER] = &ShapeShapeDistance<Sphere, Cylinder>;
-  distance_matrix[GEOM_SPHERE][GEOM_CONVEX] = &ShapeShapeDistance<Sphere, Convex>;
+  distance_matrix[GEOM_SPHERE][GEOM_CONVEX] = &ShapeShapeDistance<Sphere, ConvexBase>;
   distance_matrix[GEOM_SPHERE][GEOM_PLANE] = &ShapeShapeDistance<Sphere, Plane>;
   distance_matrix[GEOM_SPHERE][GEOM_HALFSPACE] = &ShapeShapeDistance<Sphere, Halfspace>;
 
@@ -317,7 +317,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_CAPSULE][GEOM_CAPSULE] = &ShapeShapeDistance<Capsule, Capsule>;
   distance_matrix[GEOM_CAPSULE][GEOM_CONE] = &ShapeShapeDistance<Capsule, Cone>;
   distance_matrix[GEOM_CAPSULE][GEOM_CYLINDER] = &ShapeShapeDistance<Capsule, Cylinder>;
-  distance_matrix[GEOM_CAPSULE][GEOM_CONVEX] = &ShapeShapeDistance<Capsule, Convex>;
+  distance_matrix[GEOM_CAPSULE][GEOM_CONVEX] = &ShapeShapeDistance<Capsule, ConvexBase>;
   distance_matrix[GEOM_CAPSULE][GEOM_PLANE] = &ShapeShapeDistance<Capsule, Plane>;
   distance_matrix[GEOM_CAPSULE][GEOM_HALFSPACE] = &ShapeShapeDistance<Capsule, Halfspace>;
 
@@ -326,7 +326,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_CONE][GEOM_CAPSULE] = &ShapeShapeDistance<Cone, Capsule>;
   distance_matrix[GEOM_CONE][GEOM_CONE] = &ShapeShapeDistance<Cone, Cone>;
   distance_matrix[GEOM_CONE][GEOM_CYLINDER] = &ShapeShapeDistance<Cone, Cylinder>;
-  distance_matrix[GEOM_CONE][GEOM_CONVEX] = &ShapeShapeDistance<Cone, Convex>;
+  distance_matrix[GEOM_CONE][GEOM_CONVEX] = &ShapeShapeDistance<Cone, ConvexBase>;
   distance_matrix[GEOM_CONE][GEOM_PLANE] = &ShapeShapeDistance<Cone, Plane>;
   distance_matrix[GEOM_CONE][GEOM_HALFSPACE] = &ShapeShapeDistance<Cone, Halfspace>;
 
@@ -335,25 +335,25 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_CYLINDER][GEOM_CAPSULE] = &ShapeShapeDistance<Cylinder, Capsule>;
   distance_matrix[GEOM_CYLINDER][GEOM_CONE] = &ShapeShapeDistance<Cylinder, Cone>;
   distance_matrix[GEOM_CYLINDER][GEOM_CYLINDER] = &ShapeShapeDistance<Cylinder, Cylinder>;
-  distance_matrix[GEOM_CYLINDER][GEOM_CONVEX] = &ShapeShapeDistance<Cylinder, Convex>;
+  distance_matrix[GEOM_CYLINDER][GEOM_CONVEX] = &ShapeShapeDistance<Cylinder, ConvexBase>;
   distance_matrix[GEOM_CYLINDER][GEOM_PLANE] = &ShapeShapeDistance<Cylinder, Plane>;
   distance_matrix[GEOM_CYLINDER][GEOM_HALFSPACE] = &ShapeShapeDistance<Cylinder, Halfspace>;
 
-  distance_matrix[GEOM_CONVEX][GEOM_BOX] = &ShapeShapeDistance<Convex, Box>;
-  distance_matrix[GEOM_CONVEX][GEOM_SPHERE] = &ShapeShapeDistance<Convex, Sphere>;
-  distance_matrix[GEOM_CONVEX][GEOM_CAPSULE] = &ShapeShapeDistance<Convex, Capsule>;
-  distance_matrix[GEOM_CONVEX][GEOM_CONE] = &ShapeShapeDistance<Convex, Cone>;
-  distance_matrix[GEOM_CONVEX][GEOM_CYLINDER] = &ShapeShapeDistance<Convex, Cylinder>;
-  distance_matrix[GEOM_CONVEX][GEOM_CONVEX] = &ShapeShapeDistance<Convex, Convex>;
-  distance_matrix[GEOM_CONVEX][GEOM_PLANE] = &ShapeShapeDistance<Convex, Plane>;
-  distance_matrix[GEOM_CONVEX][GEOM_HALFSPACE] = &ShapeShapeDistance<Convex, Halfspace>;
+  distance_matrix[GEOM_CONVEX][GEOM_BOX] = &ShapeShapeDistance<ConvexBase, Box>;
+  distance_matrix[GEOM_CONVEX][GEOM_SPHERE] = &ShapeShapeDistance<ConvexBase, Sphere>;
+  distance_matrix[GEOM_CONVEX][GEOM_CAPSULE] = &ShapeShapeDistance<ConvexBase, Capsule>;
+  distance_matrix[GEOM_CONVEX][GEOM_CONE] = &ShapeShapeDistance<ConvexBase, Cone>;
+  distance_matrix[GEOM_CONVEX][GEOM_CYLINDER] = &ShapeShapeDistance<ConvexBase, Cylinder>;
+  distance_matrix[GEOM_CONVEX][GEOM_CONVEX] = &ShapeShapeDistance<ConvexBase, ConvexBase>;
+  distance_matrix[GEOM_CONVEX][GEOM_PLANE] = &ShapeShapeDistance<ConvexBase, Plane>;
+  distance_matrix[GEOM_CONVEX][GEOM_HALFSPACE] = &ShapeShapeDistance<ConvexBase, Halfspace>;
 
   distance_matrix[GEOM_PLANE][GEOM_BOX] = &ShapeShapeDistance<Plane, Box>;
   distance_matrix[GEOM_PLANE][GEOM_SPHERE] = &ShapeShapeDistance<Plane, Sphere>;
   distance_matrix[GEOM_PLANE][GEOM_CAPSULE] = &ShapeShapeDistance<Plane, Capsule>;
   distance_matrix[GEOM_PLANE][GEOM_CONE] = &ShapeShapeDistance<Plane, Cone>;
   distance_matrix[GEOM_PLANE][GEOM_CYLINDER] = &ShapeShapeDistance<Plane, Cylinder>;
-  distance_matrix[GEOM_PLANE][GEOM_CONVEX] = &ShapeShapeDistance<Plane, Convex>;
+  distance_matrix[GEOM_PLANE][GEOM_CONVEX] = &ShapeShapeDistance<Plane, ConvexBase>;
   distance_matrix[GEOM_PLANE][GEOM_PLANE] = &ShapeShapeDistance<Plane, Plane>;
   distance_matrix[GEOM_PLANE][GEOM_HALFSPACE] = &ShapeShapeDistance<Plane, Halfspace>;
 
@@ -362,7 +362,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_HALFSPACE][GEOM_CAPSULE] = &ShapeShapeDistance<Halfspace, Capsule>;
   distance_matrix[GEOM_HALFSPACE][GEOM_CONE] = &ShapeShapeDistance<Halfspace, Cone>;
   distance_matrix[GEOM_HALFSPACE][GEOM_CYLINDER] = &ShapeShapeDistance<Halfspace, Cylinder>;
-  distance_matrix[GEOM_HALFSPACE][GEOM_CONVEX] = &ShapeShapeDistance<Halfspace, Convex>;
+  distance_matrix[GEOM_HALFSPACE][GEOM_CONVEX] = &ShapeShapeDistance<Halfspace, ConvexBase>;
   distance_matrix[GEOM_HALFSPACE][GEOM_PLANE] = &ShapeShapeDistance<Halfspace, Plane>;
   distance_matrix[GEOM_HALFSPACE][GEOM_HALFSPACE] = &ShapeShapeDistance<Halfspace, Halfspace>;
 
@@ -373,7 +373,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_AABB][GEOM_CAPSULE] = &BVHShapeDistancer<AABB, Capsule>::distance;
   distance_matrix[BV_AABB][GEOM_CONE] = &BVHShapeDistancer<AABB, Cone>::distance;
   distance_matrix[BV_AABB][GEOM_CYLINDER] = &BVHShapeDistancer<AABB, Cylinder>::distance;
-  distance_matrix[BV_AABB][GEOM_CONVEX] = &BVHShapeDistancer<AABB, Convex>::distance;
+  distance_matrix[BV_AABB][GEOM_CONVEX] = &BVHShapeDistancer<AABB, ConvexBase>::distance;
   distance_matrix[BV_AABB][GEOM_PLANE] = &BVHShapeDistancer<AABB, Plane>::distance;
   distance_matrix[BV_AABB][GEOM_HALFSPACE] = &BVHShapeDistancer<AABB, Halfspace>::distance;
   */
@@ -383,7 +383,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_OBB][GEOM_CAPSULE] = &BVHShapeDistancer<OBB, Capsule>::distance;
   distance_matrix[BV_OBB][GEOM_CONE] = &BVHShapeDistancer<OBB, Cone>::distance;
   distance_matrix[BV_OBB][GEOM_CYLINDER] = &BVHShapeDistancer<OBB, Cylinder>::distance;
-  distance_matrix[BV_OBB][GEOM_CONVEX] = &BVHShapeDistancer<OBB, Convex>::distance;
+  distance_matrix[BV_OBB][GEOM_CONVEX] = &BVHShapeDistancer<OBB, ConvexBase>::distance;
   distance_matrix[BV_OBB][GEOM_PLANE] = &BVHShapeDistancer<OBB, Plane>::distance;
   distance_matrix[BV_OBB][GEOM_HALFSPACE] = &BVHShapeDistancer<OBB, Halfspace>::distance;
 
@@ -392,7 +392,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_RSS][GEOM_CAPSULE] = &BVHShapeDistancer<RSS, Capsule>::distance;
   distance_matrix[BV_RSS][GEOM_CONE] = &BVHShapeDistancer<RSS, Cone>::distance;
   distance_matrix[BV_RSS][GEOM_CYLINDER] = &BVHShapeDistancer<RSS, Cylinder>::distance;
-  distance_matrix[BV_RSS][GEOM_CONVEX] = &BVHShapeDistancer<RSS, Convex>::distance;
+  distance_matrix[BV_RSS][GEOM_CONVEX] = &BVHShapeDistancer<RSS, ConvexBase>::distance;
   distance_matrix[BV_RSS][GEOM_PLANE] = &BVHShapeDistancer<RSS, Plane>::distance;
   distance_matrix[BV_RSS][GEOM_HALFSPACE] = &BVHShapeDistancer<RSS, Halfspace>::distance;
 
@@ -403,7 +403,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_KDOP16][GEOM_CAPSULE] = &BVHShapeDistancer<KDOP<16>, Capsule>::distance;
   distance_matrix[BV_KDOP16][GEOM_CONE] = &BVHShapeDistancer<KDOP<16>, Cone>::distance;
   distance_matrix[BV_KDOP16][GEOM_CYLINDER] = &BVHShapeDistancer<KDOP<16>, Cylinder>::distance;
-  distance_matrix[BV_KDOP16][GEOM_CONVEX] = &BVHShapeDistancer<KDOP<16>, Convex>::distance;
+  distance_matrix[BV_KDOP16][GEOM_CONVEX] = &BVHShapeDistancer<KDOP<16>, ConvexBase>::distance;
   distance_matrix[BV_KDOP16][GEOM_PLANE] = &BVHShapeDistancer<KDOP<16>, Plane>::distance;
   distance_matrix[BV_KDOP16][GEOM_HALFSPACE] = &BVHShapeDistancer<KDOP<16>, Halfspace>::distance;
 
@@ -412,7 +412,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_KDOP18][GEOM_CAPSULE] = &BVHShapeDistancer<KDOP<18>, Capsule>::distance;
   distance_matrix[BV_KDOP18][GEOM_CONE] = &BVHShapeDistancer<KDOP<18>, Cone>::distance;
   distance_matrix[BV_KDOP18][GEOM_CYLINDER] = &BVHShapeDistancer<KDOP<18>, Cylinder>::distance;
-  distance_matrix[BV_KDOP18][GEOM_CONVEX] = &BVHShapeDistancer<KDOP<18>, Convex>::distance;
+  distance_matrix[BV_KDOP18][GEOM_CONVEX] = &BVHShapeDistancer<KDOP<18>, ConvexBase>::distance;
   distance_matrix[BV_KDOP18][GEOM_PLANE] = &BVHShapeDistancer<KDOP<18>, Plane>::distance;
   distance_matrix[BV_KDOP18][GEOM_HALFSPACE] = &BVHShapeDistancer<KDOP<18>, Halfspace>::distance;
 
@@ -421,7 +421,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_KDOP24][GEOM_CAPSULE] = &BVHShapeDistancer<KDOP<24>, Capsule>::distance;
   distance_matrix[BV_KDOP24][GEOM_CONE] = &BVHShapeDistancer<KDOP<24>, Cone>::distance;
   distance_matrix[BV_KDOP24][GEOM_CYLINDER] = &BVHShapeDistancer<KDOP<24>, Cylinder>::distance;
-  distance_matrix[BV_KDOP24][GEOM_CONVEX] = &BVHShapeDistancer<KDOP<24>, Convex>::distance;
+  distance_matrix[BV_KDOP24][GEOM_CONVEX] = &BVHShapeDistancer<KDOP<24>, ConvexBase>::distance;
   distance_matrix[BV_KDOP24][GEOM_PLANE] = &BVHShapeDistancer<KDOP<24>, Plane>::distance;
   distance_matrix[BV_KDOP24][GEOM_HALFSPACE] = &BVHShapeDistancer<KDOP<24>, Halfspace>::distance;
   */
@@ -431,7 +431,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_kIOS][GEOM_CAPSULE] = &BVHShapeDistancer<kIOS, Capsule>::distance;
   distance_matrix[BV_kIOS][GEOM_CONE] = &BVHShapeDistancer<kIOS, Cone>::distance;
   distance_matrix[BV_kIOS][GEOM_CYLINDER] = &BVHShapeDistancer<kIOS, Cylinder>::distance;
-  distance_matrix[BV_kIOS][GEOM_CONVEX] = &BVHShapeDistancer<kIOS, Convex>::distance;
+  distance_matrix[BV_kIOS][GEOM_CONVEX] = &BVHShapeDistancer<kIOS, ConvexBase>::distance;
   distance_matrix[BV_kIOS][GEOM_PLANE] = &BVHShapeDistancer<kIOS, Plane>::distance;
   distance_matrix[BV_kIOS][GEOM_HALFSPACE] = &BVHShapeDistancer<kIOS, Halfspace>::distance;
 
@@ -440,7 +440,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[BV_OBBRSS][GEOM_CAPSULE] = &BVHShapeDistancer<OBBRSS, Capsule>::distance;
   distance_matrix[BV_OBBRSS][GEOM_CONE] = &BVHShapeDistancer<OBBRSS, Cone>::distance;
   distance_matrix[BV_OBBRSS][GEOM_CYLINDER] = &BVHShapeDistancer<OBBRSS, Cylinder>::distance;
-  distance_matrix[BV_OBBRSS][GEOM_CONVEX] = &BVHShapeDistancer<OBBRSS, Convex>::distance;
+  distance_matrix[BV_OBBRSS][GEOM_CONVEX] = &BVHShapeDistancer<OBBRSS, ConvexBase>::distance;
   distance_matrix[BV_OBBRSS][GEOM_PLANE] = &BVHShapeDistancer<OBBRSS, Plane>::distance;
   distance_matrix[BV_OBBRSS][GEOM_HALFSPACE] = &BVHShapeDistancer<OBBRSS, Halfspace>::distance;
 
@@ -456,7 +456,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_OCTREE][GEOM_CAPSULE] = &OcTreeShapeDistance<Capsule>;
   distance_matrix[GEOM_OCTREE][GEOM_CONE] = &OcTreeShapeDistance<Cone>;
   distance_matrix[GEOM_OCTREE][GEOM_CYLINDER] = &OcTreeShapeDistance<Cylinder>;
-  distance_matrix[GEOM_OCTREE][GEOM_CONVEX] = &OcTreeShapeDistance<Convex>;
+  distance_matrix[GEOM_OCTREE][GEOM_CONVEX] = &OcTreeShapeDistance<ConvexBase>;
   distance_matrix[GEOM_OCTREE][GEOM_PLANE] = &OcTreeShapeDistance<Plane>;
   distance_matrix[GEOM_OCTREE][GEOM_HALFSPACE] = &OcTreeShapeDistance<Halfspace>;
 
@@ -465,7 +465,7 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_CAPSULE][GEOM_OCTREE] = &ShapeOcTreeDistance<Capsule>;
   distance_matrix[GEOM_CONE][GEOM_OCTREE] = &ShapeOcTreeDistance<Cone>;
   distance_matrix[GEOM_CYLINDER][GEOM_OCTREE] = &ShapeOcTreeDistance<Cylinder>;
-  distance_matrix[GEOM_CONVEX][GEOM_OCTREE] = &ShapeOcTreeDistance<Convex>;
+  distance_matrix[GEOM_CONVEX][GEOM_OCTREE] = &ShapeOcTreeDistance<ConvexBase>;
   distance_matrix[GEOM_PLANE][GEOM_OCTREE] = &ShapeOcTreeDistance<Plane>;
   distance_matrix[GEOM_HALFSPACE][GEOM_OCTREE] = &ShapeOcTreeDistance<Halfspace>;
 
@@ -476,18 +476,18 @@ DistanceFunctionMatrix::DistanceFunctionMatrix()
   distance_matrix[GEOM_OCTREE][BV_RSS] = &OcTreeBVHDistance<RSS>;
   distance_matrix[GEOM_OCTREE][BV_OBBRSS] = &OcTreeBVHDistance<OBBRSS>;
   distance_matrix[GEOM_OCTREE][BV_kIOS] = &OcTreeBVHDistance<kIOS>;
-  distance_matrix[GEOM_OCTREE][BV_KDOP16] = &OcTreeBVHDistance<KDOP<16>>;
-  distance_matrix[GEOM_OCTREE][BV_KDOP18] = &OcTreeBVHDistance<KDOP<18>>;
-  distance_matrix[GEOM_OCTREE][BV_KDOP24] = &OcTreeBVHDistance<KDOP<24>>;
+  distance_matrix[GEOM_OCTREE][BV_KDOP16] = &OcTreeBVHDistance<KDOP<16> >;
+  distance_matrix[GEOM_OCTREE][BV_KDOP18] = &OcTreeBVHDistance<KDOP<18> >;
+  distance_matrix[GEOM_OCTREE][BV_KDOP24] = &OcTreeBVHDistance<KDOP<24> >;
 
   distance_matrix[BV_AABB][GEOM_OCTREE] = &BVHOcTreeDistance<AABB>;
   distance_matrix[BV_OBB][GEOM_OCTREE] = &BVHOcTreeDistance<OBB>;
   distance_matrix[BV_RSS][GEOM_OCTREE] = &BVHOcTreeDistance<RSS>;
   distance_matrix[BV_OBBRSS][GEOM_OCTREE] = &BVHOcTreeDistance<OBBRSS>;
   distance_matrix[BV_kIOS][GEOM_OCTREE] = &BVHOcTreeDistance<kIOS>;
-  distance_matrix[BV_KDOP16][GEOM_OCTREE] = &BVHOcTreeDistance<KDOP<16>>;
-  distance_matrix[BV_KDOP18][GEOM_OCTREE] = &BVHOcTreeDistance<KDOP<18>>;
-  distance_matrix[BV_KDOP24][GEOM_OCTREE] = &BVHOcTreeDistance<KDOP<24>>;
+  distance_matrix[BV_KDOP16][GEOM_OCTREE] = &BVHOcTreeDistance<KDOP<16> >;
+  distance_matrix[BV_KDOP18][GEOM_OCTREE] = &BVHOcTreeDistance<KDOP<18> >;
+  distance_matrix[BV_KDOP24][GEOM_OCTREE] = &BVHOcTreeDistance<KDOP<24> >;
 #endif
 
 
